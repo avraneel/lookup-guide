@@ -37,4 +37,8 @@ GRUB_CMDLINE_LINUX_DEFAULT='quiet splash loglevel=3'  # loglevel ranges from 0-6
 
 In Ubuntu:
 
+```bash
+sudo update-grub
+```
+
 In Arch-based distros:
