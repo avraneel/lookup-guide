@@ -30,7 +30,7 @@ GRUB_DEFAULT=saved
 GRUB_SAVEDEFAULT=true
 
 # Remove bug/debug messages while bootup or shut down
-GRUB_CMDLINE_LINUX_DEFAULT='quiet splash loglevel=3'  # loglevel ranges from 0-6, higher loglevel results in a quieter boot
+GRUB_CMDLINE_LINUX_DEFAULT='quiet splash loglevel=3'  # loglevel ranges from 0-6, lower loglevel results in a quieter boot
 ```
 
 **Remember to update grub after editing in the `/etc/default/grub` file:**
