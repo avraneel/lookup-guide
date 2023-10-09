@@ -1,6 +1,8 @@
-# Linux Tweaks
+# Memos
 
-This is a set of tweaks i apply on distros to make them more customisable to my needs. I'm collecting them all in a single repo so that i don't have to search the web everytime. I'm still new to the whole thing so i'll continue to update it as I continue learning more about Linux.
+Thee purpose of this doc is to act as a quick lookup guide for me for common tasks instead of having to lookup everything on the net.
+
+## Linux
 
 ## PS1 String
 
@@ -41,4 +43,20 @@ In Ubuntu:
 sudo update-grub
 ```
 
-In Arch-based distros:
+# Python
+
+To create a virtual environment:
+
+```python
+py -m venv /path/to/venv/
+```
+
+To activate a virtual environment:
+
+```python
+./venv/Scripts/Activate.ps1
+```
+
+To decative simply type `deactivate` in the shell
+
+
