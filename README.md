@@ -62,6 +62,8 @@ To decative simply type `deactivate` in the shell
 
 For setting up Git, [refer to this Odin Project Guide](https://www.theodinproject.com/lessons/foundations-setting-up-git)
 
+[GitHub reference to SSH keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
+
 For authenticity of GitHub error, [refer to this](https://gist.github.com/vikpe/34454d69fe03a9617f2b009cc3ba200b)
 
 
