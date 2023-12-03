@@ -2,6 +2,7 @@ The purpose of this doc is to act as a quick lookup guide for me for common task
 
 ## Go to -
 - [Youtube Playlists](./docs/youtube_playlists.md)
+- [Online Textbooks](./docs/online_books.md)
 
 ## PS1 String
 
