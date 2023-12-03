@@ -4,6 +4,12 @@ The purpose of this doc is to act as a quick lookup guide for me for common task
 - [Youtube Playlists](./docs/youtube_playlists.md)
 - [Online Textbooks](./docs/online_textbooks.md)
 
+## Windows
+
+- [Restore Legacy Right Click context menu](https://answers.microsoft.com/en-us/windows/forum/all/restore-old-right-click-context-menu-in-windows-11/a62e797c-eaf3-411b-aeec-e460e6e5a82a)
+
+
+
 ## PS1 String
 
 Edit in `~/.bashrc`
