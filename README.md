@@ -1,8 +1,7 @@
-# Memos
+The purpose of this doc is to act as a quick lookup guide for me for common tasks instead of having to lookup everything on the net.
 
-Thee purpose of this doc is to act as a quick lookup guide for me for common tasks instead of having to lookup everything on the net.
-
-## Linux
+## Go to -
+- [Youtube Playlists](./docs/youtube_playlists.md)
 
 ## PS1 String
 
@@ -63,7 +62,7 @@ To decative simply type `deactivate` in the shell
 
 For setting up Git, [refer to this Odin Project Guide](https://www.theodinproject.com/lessons/foundations-setting-up-git)
 
-For authencity of GitHub error, [refer to this](https://gist.github.com/vikpe/34454d69fe03a9617f2b009cc3ba200b)
+For authenticity of GitHub error, [refer to this](https://gist.github.com/vikpe/34454d69fe03a9617f2b009cc3ba200b)
 
 
 
