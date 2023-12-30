@@ -24,3 +24,9 @@
 - `pacman -S pacman-contrib`
 - `rankmirrors -n 10 /etc/pacman.d/mirrorlist.bak > /etc/pacman.d/mirrorlist` and wait
 - `pacstrap -i `
+
+# Automount a partition/device during boot
+
+- Get the UUID of the device by `lsblk -f` 
+- Edit the `/etc/fstab` file. [More Info on Archwiki](https://wiki.archlinux.org/title/fstab)
+
