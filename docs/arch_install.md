@@ -29,4 +29,5 @@
 
 - Get the UUID of the device by `lsblk -f` 
 - Edit the `/etc/fstab` file. [More Info on Archwiki](https://wiki.archlinux.org/title/fstab)
+- Use `defaults` for option column
 
