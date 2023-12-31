@@ -26,46 +26,46 @@
 - `rankmirrors -n 10 /etc/pacman.d/mirrorlist.bak > /etc/pacman.d/mirrorlist` and wait
 - `pacstrap -K /mnt base linux linux-headers linux-firmware linux-lts-headers linux-lts linux-zen sudo nano`
 
-# Generate fstab file
+## Generate fstab file
 
 -  `genfstab -U /mnt >> /mnt/etc/fstab`
 
-## Automount a partition/device during boot
+### Automount a partition/device during boot
 
 - Get the UUID of the device by `lsblk -f` 
 - Edit the `/etc/fstab` file. [More Info on Archwiki](https://wiki.archlinux.org/title/fstab)
 - Use `defaults` for option column
 
-# Change root
+## Change root
 
 - `arch-chroot /mnt`
 - `ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime`
 - `hwclock --systohc`
 
-# Locale gen
+## Locale gen
 
 - Edit `/etc/locale.gen` and uncomment `en_US.UTF-8 UTF-8`
 - `locale-gen`
 - Create `/etc/locale.conf` and put `LANG=en_US.UTF-8`
 
-# Network Configuration
+## Network Configuration
 
 - Create `/etc/hostname` and put your `hostname` in there
 
 
-# Passwords
+## Passwords
 
 - Add root password
     ```
     # passwd
     ```
 
-# Boot Loader
+## Boot Loader
 
-## GRUB
+### GRUB
 
 It just works™
 
 
-## Systemd-boot
+### Systemd-boot
 
