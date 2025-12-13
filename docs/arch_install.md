@@ -108,11 +108,9 @@ swapon /swapfile # activate the swapfile
 
 ## Mirrors and packages
 
-- `cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak`
-- `pacman -Sy`
-- `pacman -S pacman-contrib`
-- `rankmirrors -n 10 /etc/pacman.d/mirrorlist.bak > /etc/pacman.d/mirrorlist` and wait
-- `pacstrap -K /mnt base linux linux-headers linux-firmware linux-lts-headers linux-lts linux-zen sudo nano`
+Now install all the packages necessary. Don't forget to install a network management system and sudo.
+
+- `pacstrap -K /mnt base linux linux-firmware sudo networkmanager base-devel nano nvim python`
 
 ## Generate fstab file
 
