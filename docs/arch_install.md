@@ -1,6 +1,6 @@
-# Arch install guide
+# An Opinionated Arch Linux install guide
 
-# Pre boot (if dual booting):
+## Pre boot (if dual booting):
 
 - Allocate space
     > I don't recommend GParted for now as Windows Partiton Manager has some problems working with disks if it has been touched with GParted. Not sure why, will check into this later.
