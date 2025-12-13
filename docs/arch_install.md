@@ -4,19 +4,62 @@
 
 - Allocate space
     > I don't recommend GParted for now as Windows Partiton Manager has some problems working with disks if it has been touched with GParted. Not sure why, will check into this later.
-- Disable fast startup (from control panel)
-- Disable secure boot
+    
+- Disable fast startup
+
+    ```cmd
+    powercfg /h off
+    ```
+    
+- Disable secure boot from the UEFI settings
 
 # Booting
 
 - `setfont ter-132b` for bigger font
 - `ping archlinux.org` for connection 
 
+## Connect to a Network
+
+For WiFi:
+
+  ```bash
+  iwctl
+  device list
+  station <device> scan
+  station <device> get-networks
+  station <device> connect <SSID>
+  exit
+  ```
+
+Then check if you are connected by running `ping archlinux.org`
+
 ## Partitioning 
 
-- Partiton with `cfdisk /dev/nvme0n1` (no need for ESP if dual booting)
-- `mkfs.ext4 /dev/root_partition` and `mkswap /dev/swap_partition`
-- `mount /dev/root_partition /mnt` and `swapon /dev/swap_partition`
+If you have 2 disks, then keep 1 for windows and 1 for Linux.
+
+### Windows Partition Table:
+
+> *"If it works, don't break it"*
+
+| Partition | Size |
+|--------|--------|
+| EFI System Partition | 200M |
+| Microsoft Reserved Partition | 16M |
+| C: Drive | Remaining |
+| Windows Recovery Partition | 1.1G |
+
+### Linux Disk Partition Table:
+
+The examples in the Archwiki install guide gives a very generic partition table compared to the modern choices distros like Ubuntu is making. Nor is it customised for people with dualboot setups. I recommend building the partition table mentioned below, keeping the following points in mind:
+
+- Create a new EFI System Partition for Linux. This will have a larger size (1G) compared to the Windows EFI Partition (200M) as the windows partition isn't enough to fit everything. [Read more on the arch wiki](https://wiki.archlinux.org/title/Dual_boot_with_Windows#The_EFI_system_partition_created_by_Windows_Setup_is_too_small)
+
+- Create a swapfile instead of a swap partition. This keeps your partition table clean and avoids the need for a separate swap partition. Moreover, it is easier to resize the swapfile compared to resizing a swap partition. [Read more on the arch wiki](https://wiki.archlinux.org/title/Swap#Swap_file)
+
+| Partition | Size | Mount Point |
+|--------|--------|--------|
+| EFI System Partition | 1G | /boot |
+| Root Partition | Remaining | / |
 
 ## Mirrors and packages
 
@@ -68,4 +111,3 @@ It just works™
 
 
 ### Systemd-boot
-
