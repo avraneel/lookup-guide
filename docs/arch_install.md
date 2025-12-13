@@ -26,9 +26,9 @@ For WiFi:
 
   ```bash
   iwctl
-  device list
-  station <device> scan # replace <device> with the device name you got from executing the previous "device list" command
-  station <device> get-networks
+  device list # to get your device name
+  station <device> scan
+  station <device> get-networks # lists all networks
   station <device> connect <SSID>
   exit
   ```
