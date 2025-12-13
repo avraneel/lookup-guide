@@ -41,7 +41,7 @@ If you have 2 disks, then keep 1 for windows and 1 for Linux.
 
 ### Windows Partition Table:
 
-> *"If it works, don't break it"*
+> *"If it works, don't fix it"*
 
 | Partition | Size |
 |--------|--------|
