@@ -121,30 +121,29 @@ Now install all the packages necessary. Don't forget to install a network manage
   genfstab -U /mnt >> /mnt/etc/fstab
   ```
 
+Check if the contents are okay or not
 
-## Change root
+## Change root and set time
 
-- `arch-chroot /mnt`
-- `ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime`
-- `hwclock --systohc`
+```sh
+arch-chroot /mnt
+ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
+hwclock --systohc
+```
 
 ## Locale gen
 
 - Edit `/etc/locale.gen` and uncomment `en_US.UTF-8 UTF-8`
-- `locale-gen`
-- Create `/etc/locale.conf` and put `LANG=en_US.UTF-8`
+- Execute the command `locale-gen`
+- Create `/etc/locale.conf` file and in it put `LANG=en_US.UTF-8`
 
 ## Network Configuration
 
-- Create `/etc/hostname` and put your `hostname` in there
-
+Create `/etc/hostname` and put your `hostname` in there
 
 ## Passwords
 
-- Add root password
-    ```
-    # passwd
-    ```
+- Add root password by executing `passwd`
 
 ## Boot Loader
 
@@ -152,5 +151,9 @@ Now install all the packages necessary. Don't forget to install a network manage
 
 It just works™
 
+```sh
+pacman -S grub efibootmgr
+grub-install --target=x86_64-efi --efi-directory=esp --bootloader-id=GRUB
+```
 
 ### Systemd-boot
