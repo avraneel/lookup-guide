@@ -103,7 +103,7 @@ mkswap -U clear --size 4G --file /swapfile # create the swapfile
 
 Now install all the packages necessary. Don't forget to install a network management system and sudo.
 
-- `pacstrap -K /mnt base linux linux-firmware sudo networkmanager base-devel nano nvim man python git`
+- `pacstrap -K /mnt base linux linux-zen linux-firmware sudo git networkmanager base-devel nano nvim man python git nvidia-open`
 
 ## Generate fstab file
 
