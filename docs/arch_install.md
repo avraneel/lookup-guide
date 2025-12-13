@@ -52,16 +52,15 @@ If you have 2 disks, then keep 1 for windows and 1 for Linux.
 
 ### Linux Disk Partition Table:
 
-The examples in the Archwiki install guide gives a very generic partition table compared to the modern choices distros like Ubuntu is making. Nor is it customised for people with dualboot setups. I recommend building the partition table mentioned below, keeping the following points in mind:
+The examples in the Archwiki install guide gives a very generic partition table compared to the modern choices distros like Ubuntu is making. Nor is it customised for people with dualboot setups. I recommend building the partition table mentioned below, keeping the following in mind:
 
 - Create a new EFI System Partition for Linux. This will have a larger size (1G) compared to the Windows EFI Partition (200M) as the windows partition isn't enough to fit everything. [Read more on the arch wiki](https://wiki.archlinux.org/title/Dual_boot_with_Windows#The_EFI_system_partition_created_by_Windows_Setup_is_too_small)
-
-- Create a swapfile instead of a swap partition. This keeps your partition table clean and avoids the need for a separate swap partition. Moreover, it is easier to resize the swapfile compared to resizing a swap partition. [Read more on the arch wiki](https://wiki.archlinux.org/title/Swap#Swap_file)
 
 | Partition | Size | Mount Point |
 |--------|--------|--------|
 | EFI System Partition | 1G | /boot |
 | Root Partition | Remaining | / |
+| Swap Partition | 4G | [SWAP] |
 
 Use `cfdisk` to get a user friendly interface.
 
@@ -157,3 +156,10 @@ grub-install --target=x86_64-efi --efi-directory=esp --bootloader-id=GRUB
 ```
 
 ### Systemd-boot
+
+## Setting up sudo
+
+First add your username
+
+```sh
+useradd -m
