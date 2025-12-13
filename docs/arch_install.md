@@ -7,7 +7,7 @@
     
 - Disable fast startup
 
-    ```cmd
+    ```bat
     powercfg /h off
     ```
     
@@ -83,9 +83,26 @@ The Root Partition will be formatted to ext4
 mkfs.ext4 /dev/root_partition
 ```
 
-## Create the swapfile
+### Mount the partitions
+
+> [!WARNING]
+> If you execute `mount` wrong one time, and then execute `mount` again, those two directories will **stack** and not overwrtie. This will mess up the UUIDs when you will be creating your fstab file later. You need to `umount` the wrong folders one by one. Always check what directories are mounted using `lsblk` after executing the `mount` command. Only proceed further if the output of `lsblk` is to your liking.
+
+```sh
+mount /dev/root_partition /mnt
+mount --mkdir /dev/esp /mnt/boot
+```
+
+Now execute `lsblk` and check if the output is to your liking. If the partitions are mounted properly, only then proceed further.
+
+### Create the swapfile
 
 The old quote *"twice the size of RAM"* is obsolete. Instead, just create a swapfile of 4GB.
+
+```sh
+mkswap -U clear --size 4G --file /swapfile # create the swapfile
+swapon /swapfile # activate the swapfile
+```
 
 ## Mirrors and packages
 
