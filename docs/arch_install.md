@@ -63,6 +63,8 @@ The examples in the Archwiki install guide gives a very generic partition table 
 | EFI System Partition | 1G | /boot |
 | Root Partition | Remaining | / |
 
+Use `cfdisk` to get a user friendly interface.
+
 ## Filesystem Creation
 
 List your devices using 'lsblk'.
