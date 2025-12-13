@@ -110,17 +110,17 @@ swapon /swapfile # activate the swapfile
 
 Now install all the packages necessary. Don't forget to install a network management system and sudo.
 
-- `pacstrap -K /mnt base linux linux-firmware sudo networkmanager base-devel nano nvim python`
+- `pacstrap -K /mnt base linux linux-firmware sudo networkmanager base-devel nano nvim man python`
 
 ## Generate fstab file
 
--  `genfstab -U /mnt >> /mnt/etc/fstab`
+- First check if everything is ok using `lskblk -f`
+- Now use this command to generate the `fstab` file
 
-### Automount a partition/device during boot
+  ```sh
+  genfstab -U /mnt >> /mnt/etc/fstab
+  ```
 
-- Get the UUID of the device by `lsblk -f` 
-- Edit the `/etc/fstab` file. [More Info on Archwiki](https://wiki.archlinux.org/title/fstab)
-- Use `defaults` for option column
 
 ## Change root
 
