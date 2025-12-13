@@ -15,8 +15,10 @@
 
 # Booting
 
-- `setfont ter-132b` for bigger font
-- `ping archlinux.org` for connection 
+```bash
+setfont ter-132b # for bigger font
+ping archlinux.org # for connection 
+```
 
 ## Connect to a Network
 
@@ -25,7 +27,7 @@ For WiFi:
   ```bash
   iwctl
   device list
-  station <device> scan
+  station <device> scan # replace <device> with the device name you got from executing the previous "device list" command
   station <device> get-networks
   station <device> connect <SSID>
   exit
@@ -60,6 +62,30 @@ The examples in the Archwiki install guide gives a very generic partition table 
 |--------|--------|--------|
 | EFI System Partition | 1G | /boot |
 | Root Partition | Remaining | / |
+
+## Filesystem Creation
+
+List your devices using 'lsblk'.
+
+### Format the EFI System Partition
+
+The EFI System Partion (ESP) will be formatted to FAT32
+
+```sh
+mkfs.fat -F32 /dev/esp
+```
+
+### Format the Root Partition
+
+The Root Partition will be formatted to ext4
+
+```sh
+mkfs.ext4 /dev/root_partition
+```
+
+## Create the swapfile
+
+The old quote *"twice the size of RAM"* is obsolete. Instead, just create a swapfile of 4GB.
 
 ## Mirrors and packages
 
