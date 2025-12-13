@@ -68,31 +68,25 @@ Use `cfdisk` to get a user friendly interface.
 
 List your devices using 'lsblk'.
 
-### Format the EFI System Partition
+### Format and mount Partition
 
-The EFI System Partion (ESP) will be formatted to FAT32
+The EFI System Partion (ESP) will be formatted to FAT32.
+The Root Partition will be formatted to ext4.
 
 ```sh
+# Format partitions
 mkfs.fat -F32 /dev/esp
-```
-
-### Format the Root Partition
-
-The Root Partition will be formatted to ext4
-
-```sh
 mkfs.ext4 /dev/root_partition
-```
+mkswap /dev/swap_partition
 
-### Mount the partitions
+# Mount partitions
+mount /dev/root_partition /mnt
+mount --mkdir /dev/esp /mnt/boot
+swapon /swapfile # activate the swapfile
+```
 
 > [!WARNING]
 > If you execute `mount` wrong one time, and then execute `mount` again, those two directories will **stack** and not overwrtie. This will mess up the UUIDs when you will be creating your fstab file later. You need to `umount` the wrong folders one by one. Always check what directories are mounted using `lsblk` after executing the `mount` command. Only proceed further if the output of `lsblk` is to your liking.
-
-```sh
-mount /dev/root_partition /mnt
-mount --mkdir /dev/esp /mnt/boot
-```
 
 Now execute `lsblk` and check if the output is to your liking. If the partitions are mounted properly, only then proceed further.
 
@@ -102,14 +96,14 @@ The old quote *"twice the size of RAM"* is obsolete. Instead, just create a swap
 
 ```sh
 mkswap -U clear --size 4G --file /swapfile # create the swapfile
-swapon /swapfile # activate the swapfile
+
 ```
 
 ## Mirrors and packages
 
 Now install all the packages necessary. Don't forget to install a network management system and sudo.
 
-- `pacstrap -K /mnt base linux linux-firmware sudo networkmanager base-devel nano nvim man python`
+- `pacstrap -K /mnt base linux linux-firmware sudo networkmanager base-devel nano nvim man python git`
 
 ## Generate fstab file
 
