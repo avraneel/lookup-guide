@@ -16,8 +16,8 @@ The purpose of this doc is to act as a quick lookup guide for me for common task
 Edit in `~/.bashrc`
 
 ```bash
-# [ <username>@<hostname> <current directory>] $ <commands.....>
-PS1='[\e[1;35m\u\e[m@\e[m\e[1;36m\h\e[m \e[1m\W\e[m] \e[1;35m\$\e\m '
+# username hostname curr_dir $ <commands.....>
+PS1='PS1='\u \h \w \\$''
 ```
 
 ## Aliases

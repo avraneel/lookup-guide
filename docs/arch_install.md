@@ -15,11 +15,6 @@
 
 # Booting
 
-```bash
-setfont ter-132b # for bigger font
-ping archlinux.org # for connection 
-```
-
 ## Connect to a Network
 
 For WiFi:
@@ -90,7 +85,7 @@ swapon /swapfile # activate the swapfile
 
 Now execute `lsblk` and check if the output is to your liking. If the partitions are mounted properly, only then proceed further.
 
-### Create the swapfile
+### Create the swapfile (TBD)
 
 The old quote *"twice the size of RAM"* is obsolete. Instead, just create a swapfile of 4GB.
 
@@ -103,7 +98,10 @@ mkswap -U clear --size 4G --file /swapfile # create the swapfile
 
 Now install all the packages necessary. Don't forget to install a network management system and sudo.
 
-- `pacstrap -K /mnt base linux linux-zen linux-firmware sudo git networkmanager base-devel nano nvim man python git nvidia-open`
+```sh
+pacstrap -K /mnt base linux-zen linux-firmware sudo grub os-prober networkmanager git base-devel nano nvim man python firefox nvidia-open`
+```
+
 
 ## Generate fstab file
 
