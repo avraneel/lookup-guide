@@ -20,6 +20,17 @@ Edit in `~/.bashrc`
 PS1='PS1='\u \h \w \\$''
 ```
 
+Make venv look bold lavender in bash:
+
+```sh
+__venv_prompt() {
+    [[ -n "$VIRTUAL_ENV" ]] && \
+    printf "\[\e[1;38;5;135m\](%s)\[\e[0m\] " "$(basename "$VIRTUAL_ENV")"
+}
+
+PS1='$(__venv_prompt)'$PS1
+```
+
 ## Aliases
 
 Edit in `~/.bashrc`
